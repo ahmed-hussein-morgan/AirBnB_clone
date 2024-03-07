@@ -1,5 +1,5 @@
 ## **AirBnB clone - The console**
-
+![Alt text](https://github.com/ahmed-hussein-morgan/AirBnB_clone/blob/main/Screenshot%202024-03-07%20161252.png)
 ## **Description of the project**
 
 ‌
