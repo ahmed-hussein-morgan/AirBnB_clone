@@ -28,9 +28,8 @@ class BaseModel:
 
     def save(self):
         """save the obj"""
-        models.storage.save()
         self.updated_at = datetime.datetime.now()
-        #storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """convert to dictionary"""
