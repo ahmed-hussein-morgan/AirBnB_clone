@@ -12,4 +12,3 @@ class TestUserModel(unittest.TestCase):
         self.assertIsInstance(self.my_user.password, str)
         self.assertIsInstance(self.my_user.first_name, str)
         self.assertIsInstance(self.my_user.last_name, str)
-
