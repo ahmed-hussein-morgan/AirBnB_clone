@@ -16,5 +16,8 @@ class TestSBaseModels(unittest.TestCase):
         self.assertIsInstance(self.my_model.created_at, object)
 
     def test_save(self):
-        self.assertIsInstance(self.my_model.name, str)
-        self.assertIsInstance(self.my_model.save(), object)
+        self.my_model.before_update = self.my_model.updated_at
+        self.my_model.name = "ahmed"
+        self.my_model.save()
+        self.my_model.after_update = self.my_model.updated_at
+        self.assertNotEqual(self.my_model.before_update, self.my_model.after_update)
