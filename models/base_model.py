@@ -1,11 +1,12 @@
 import uuid
 import datetime
+import models
 
 
 class BaseModel:
     """base is important"""
     date_time = datetime.datetime
-
+    #storage = models.storage
     def __init__(self, *args, **kwargs):
         """hey it is ini"""
 
@@ -29,7 +30,9 @@ class BaseModel:
 
     def save(self):
         """rmmber me"""
+        models.storage.save()
         self.updated_at = datetime.datetime.now()
+        #models.storage.save()
 
     def to_dict(self):
         """open the book"""
