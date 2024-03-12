@@ -1,23 +1,25 @@
 import uuid
-from datetime import datetime
-date_time = datetime()
+import datetime
 
 
 class BaseModel:
     """base is important"""
+    date_time = datetime.datetime
+
     def __init__(self, *args, **kwargs):
         """hey it is ini"""
 
         self.id = str(uuid.uuid4())
-        self.created_at = date_time.now()
-        self.updated_at = date_time.now()
+        self.created_at = BaseModel.date_time.now()
+        self.updated_at = BaseModel.date_time.now()
 
         if kwargs is not None:
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
                 elif key == "created_at" or key == "updated_at":
-                    value = date_time.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    value = BaseModel.date_time.strptime(value, "\
+                                                         %Y-%m-%dT%H:%M:%S.%f")
 
                 setattr(self, key, value)
 
