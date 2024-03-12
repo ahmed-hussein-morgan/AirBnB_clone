@@ -25,10 +25,5 @@ class TestSBaseModels(unittest.TestCase):
         self.assertNotEqual(self.my_model.before_update, self.my_model.after_update)
 
     def test_str(self):
-        # n = self.my_model.__class__.__name__
-        # expected_str = f"[{n}] ({self.my_model.id}) <{self.my_model.__dict__}>"
-        # self.assertEqual(self.my_model.__str__(), expected_str)
-    
         n = self.my_model.__class__.__name__
-        #expected_str = f"[{n}]"
         self.assertIsInstance(self.my_model.__str__(), str)
