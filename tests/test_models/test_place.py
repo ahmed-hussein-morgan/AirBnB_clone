@@ -3,7 +3,7 @@ import unittest
 from models.place import Place
 
 
-class TestCityModel(unittest.TestCase):
+class TestPlaceModel(unittest.TestCase):
     """test Review class"""
 
     my_place = Place()

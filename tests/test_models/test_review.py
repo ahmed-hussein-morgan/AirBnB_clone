@@ -3,7 +3,7 @@ import unittest
 from models.review import Review
 
 
-class TestCityModel(unittest.TestCase):
+class TestReviewModel(unittest.TestCase):
     """test Review class"""
 
     my_review = Review()

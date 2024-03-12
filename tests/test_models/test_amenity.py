@@ -3,7 +3,7 @@ import unittest
 from models.amenity import Amenity
 
 
-class TestCityModel(unittest.TestCase):
+class TestAmenityModel(unittest.TestCase):
     """test Amenity class"""
 
     my_amenity = Amenity()
