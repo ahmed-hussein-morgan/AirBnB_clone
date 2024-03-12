@@ -11,3 +11,6 @@ class TestSBaseModels(unittest.TestCase):
 
     def test_id(self):
         self.assertIsInstance(self.my_model.id, str)
+
+    def test_created_at(self):
+        self.assertIsInstance(self.my_model.created_at, object)
