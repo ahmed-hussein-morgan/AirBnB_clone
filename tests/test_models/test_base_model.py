@@ -17,4 +17,4 @@ class TestSBaseModels(unittest.TestCase):
 
     def test_save(self):
         self.assertIsInstance(self.my_model.name, str)
-        self.assertIsNone(self.my_model.save())
+        self.assertIsInstance(self.my_model.save(), object)
