@@ -14,3 +14,6 @@ class TestSBaseModels(unittest.TestCase):
 
     def test_created_at(self):
         self.assertIsInstance(self.my_model.created_at, object)
+
+    def test_save(self):
+        self.assertTrue(self.my_model.save)
