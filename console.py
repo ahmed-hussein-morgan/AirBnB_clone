@@ -14,7 +14,6 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """handle the exit case"""
         return True
-    
 
     def do_help(self, line):
         """show the help"""
@@ -23,8 +22,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self) -> bool:
         """handle empty line"""
         pass
-    
-        
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

@@ -1,10 +1,10 @@
 import unittest
-"""testing state module"""
+"""testing city module"""
 from models.city import City
 
 
 class TestCityModel(unittest.TestCase):
-    """test state class"""
+    """test city class"""
 
     my_city = City()
     def test_name(self):
