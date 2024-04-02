@@ -1,0 +1,16 @@
+body {
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+div.container {
+    text-align: center;
+    /* background-color: blue; */
+    /* align-content: center; */
+    max-width: 1000px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
