@@ -4,13 +4,10 @@ body {
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-div.container {
-    text-align: center;
-    /* background-color: blue; */
-    /* align-content: center; */
+.container {
+    /* border: black solid 05px; */
     max-width: 1000px;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 30px auto;
+    margin-bottom: 30px auto;
+
 }
