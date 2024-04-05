@@ -78,6 +78,13 @@
     width: 25%;
 }
 
+/*
+hiding the html elements with their styles by default
+and display them only when the user hover on specific element
+(sutable when we want to hide menues or drop down lists and only show themwhe hover)
+*/
+
+/* 1) set the default display of elements to be hidden */
 .locations .popover{
     display: none;
 }
@@ -86,6 +93,7 @@
     display: none;
 }
 
+/* 2) show the hidden elements only when hover*/
 .locations:hover .popover{
     display: block;
     background-color:  #FAFAFA;
@@ -115,6 +123,8 @@ ul {
 .popover ul{
     margin-left: -15px;
 }
+
+/* special margin for amen (items in amenities list)*/
 .popover .amen{
     margin-left: 15px
 }
