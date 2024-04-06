@@ -17,6 +17,8 @@
 .places article h2 {
     font-size: 30px;
     text-align: center;
+    width: 80%;
+    display: inline-block;
 }
 
 .places .house {
@@ -29,4 +31,13 @@
 
 .places .suite {
     margin-left: 25%;
+}
+
+.house  .price_by_night {
+    color: #FF5A5F;
+    border: #FF5A5F 4px solid;
+    border-radius: 50%;
+    text-align: center;
+    width: 20%;
+    display: inline-block;
 }
