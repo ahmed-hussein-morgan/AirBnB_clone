@@ -8,7 +8,7 @@ from datetime import datetime
 
 class BaseModel:
     """the main / parent class"""
-    def __init__(self) -> None:
+    def __init__(self, *args, **kwargs) -> None:
         # assign id when instance created
         self.id = str(uuid.uuid4())
 
