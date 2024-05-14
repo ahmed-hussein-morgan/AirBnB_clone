@@ -24,7 +24,7 @@ class TestSBaseModels(unittest.TestCase):
         self.my_model.after_update = self.my_model.updated_at
         self.assertNotEqual(self.my_model.before_update, self.my_model.after_update)
 
-    def test__str__(self):
+    def test_str(self):
         n = self.my_model.__class__.__name__
         self.assertIsInstance(self.my_model.__str__(), str)
 
