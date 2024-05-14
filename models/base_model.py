@@ -33,3 +33,4 @@ class BaseModel:
         self.created_at = datetime.isoformat(self.created_at)
         self.updated_at = datetime.isoformat(self.updated_at)
         self.__dict__.__setitem__('__class__', self.__class__.__name__)
+        return self.__dict__
