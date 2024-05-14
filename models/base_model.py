@@ -28,7 +28,9 @@ class BaseModel:
     def save(self):
         self.updated_at = datetime.now()
 
-    
+    # returns a dictionary containing all keys/values of __dict__ of the instance
+    #   change the format of create_at and update_at to iso format
+    #   add the class name as a value to __class__ inside the dict
     def to_dict(self):
         self.created_at = datetime.isoformat(self.created_at)
         self.updated_at = datetime.isoformat(self.updated_at)

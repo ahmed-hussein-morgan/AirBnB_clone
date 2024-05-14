@@ -1,7 +1,7 @@
 import unittest
 """testing base module"""
 from models.base_model import BaseModel
-from datetime import datetime
+#from datetime import datetime
 
 
 class TestSBaseModels(unittest.TestCase):
@@ -24,6 +24,10 @@ class TestSBaseModels(unittest.TestCase):
         self.my_model.after_update = self.my_model.updated_at
         self.assertNotEqual(self.my_model.before_update, self.my_model.after_update)
 
-    def test_str(self):
+    def test___str__(self):
         n = self.my_model.__class__.__name__
         self.assertIsInstance(self.my_model.__str__(), str)
+
+    def test_to_dict(self):
+        self.assertIsInstance(self.my_model.to_dict(), dict)
+        self.assertIn('__class__', self.my_model.__dict__)
