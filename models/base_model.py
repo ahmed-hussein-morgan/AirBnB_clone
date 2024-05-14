@@ -9,15 +9,30 @@ from datetime import datetime
 class BaseModel:
     """the main / parent class"""
     def __init__(self, *args, **kwargs) -> None:
-        # assign id when instance created
-        self.id = str(uuid.uuid4())
+        """ the initialization method """
 
-        # assign with the current datetime when an instance is created
-        self.created_at = datetime.now()
+        if kwargs:
+            for key in list(kwargs.keys()):
+                if key == "__class__":
+                    del kwargs[key]
+            
+            if "created_at" in kwargs:
+                kwargs["created_at"] = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+            if "updated_at" in kwargs:
+                kwargs["updated_at"] = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
 
-        # assign with the current datetime when an instance is created
-        # and it will be updated every time you change your object
-        self.updated_at = datetime.now()
+            self.__dict__.update(kwargs)
+        
+        else:
+            # assign id when instance created
+            self.id = str(uuid.uuid4())
+
+            # assign with the current datetime when an instance is created
+            self.created_at = datetime.now()
+
+            # assign with the current datetime when an instance is created
+            # and it will be updated every time you change your object
+            self.updated_at = datetime.now()
 
     # The __str__() method returns a human-readable string representation\
     # of an object
