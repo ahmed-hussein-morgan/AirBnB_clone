@@ -5,6 +5,7 @@ contain all common attributes and methods between all models
 """
 import uuid
 from datetime import datetime
+import models
 
 class BaseModel:
     """the main / parent class"""
@@ -41,7 +42,9 @@ class BaseModel:
     
     # updates the public instance attribute updated_at with the current datetime
     def save(self):
+        # models.storage.save()
         self.updated_at = datetime.now()
+        models.storage.save()
 
     # returns a dictionary containing all keys/values of __dict__ of the instance
     #   change the format of create_at and update_at to iso format
