@@ -7,14 +7,13 @@ from models.base_model import BaseModel
 import json
 class FileStorage:
     """handle the data storage"""
-    def __init__(self) -> None:
         # path to the json file
-        self.__file_path = "./file.json"
+    __file_path = "./file.json"
 
         # store all objects by <class name>.id in this dictionary
         # ex: to store a BaseModel object with id=12121212,
         # the key will be BaseModel.12121212
-        self.__objects = {}
+    __objects = {}
 
     #returns the dictionary __objects
     def all(self):
@@ -31,7 +30,7 @@ class FileStorage:
     #   convert objects in __objects dictionary to Json file
     def save(self):
         with open("./file.json", "w", encoding='UTF-8') as f:
-            json.dump(self.__objects, f)
+            json.dump(FileStorage.__objects, f)
 
 
     # deserializes the JSON file to __objects
