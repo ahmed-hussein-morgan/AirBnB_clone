@@ -1,59 +1,44 @@
 #!/usr/bin/python3
-"""
-the Base model for all inhereted models
-contain all common attributes and methods between all models
-"""
+"""This module defines a base class for all models in our hbnb clone"""
 import uuid
 from datetime import datetime
-import models
+
 
 class BaseModel:
-    """the main / parent class"""
-    def __init__(self, *args, **kwargs) -> None:
-        """ the initialization method """
-
-        if kwargs:
-            for key in list(kwargs.keys()):
-                if key == "__class__":
-                    del kwargs[key]
-            
-            if "created_at" in kwargs:
-                kwargs["created_at"] = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
-            if "updated_at" in kwargs:
-                kwargs["updated_at"] = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
-
-            self.__dict__.update(kwargs)
-        
-        else:
-            # assign id when instance created
+    """A base class for all hbnb models"""
+    def __init__(self, *args, **kwargs):
+        """Instatntiates a new model"""
+        if not kwargs:
+            from models import storage
             self.id = str(uuid.uuid4())
-
-            # assign with the current datetime when an instance is created
             self.created_at = datetime.now()
-
-            # assign with the current datetime when an instance is created
-            # and it will be updated every time you change your object
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            storage.new(self)
+        else:
+            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'],
+                                                     '%Y-%m-%dT%H:%M:%S.%f')
+            kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
+                                                     '%Y-%m-%dT%H:%M:%S.%f')
+            del kwargs['__class__']
+            self.__dict__.update(kwargs)
 
-    # The __str__() method returns a human-readable string representation\
-    # of an object
-    def __str__(self) -> str:
-        return f'[{self.__class__.__name__}] ({self.id}) {self.__dict__}'
-    
-    # updates the public instance attribute updated_at with the current datetime
+    def __str__(self):
+        """Returns a string representation of the instance"""
+        cls = (str(type(self)).split('.')[-1]).split('\'')[0]
+        return '[{}] ({}) {}'.format(cls, self.id, self.__dict__)
+
     def save(self):
-        # models.storage.save()
-        # if f'{self.__class__.__name__}.{self.id}' not in models.storage.__objects: ##need to update
-        #     models.storage.new()
+        """Updates updated_at with current time when instance is changed"""
+        from models import storage
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
-    # returns a dictionary containing all keys/values of __dict__ of the instance
-    #   change the format of create_at and update_at to iso format
-    #   add the class name as a value to __class__ inside the dict
     def to_dict(self):
-        self.created_at = datetime.isoformat(self.created_at)
-        self.updated_at = datetime.isoformat(self.updated_at)
-        self.__dict__.__setitem__('__class__', self.__class__.__name__)
-        return self.__dict__
+        """Convert instance into dict format"""
+        dictionary = {}
+        dictionary.update(self.__dict__)
+        dictionary.update({'__class__':
+                          (str(type(self)).split('.')[-1]).split('\'')[0]})
+        dictionary['created_at'] = self.created_at.isoformat()
+        dictionary['updated_at'] = self.updated_at.isoformat()
+        return dictionary
