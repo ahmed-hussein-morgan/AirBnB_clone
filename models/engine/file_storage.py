@@ -3,7 +3,8 @@
 handle objects and create needed json file:
     retreive, save, add_new, reload 
 """
-from models.base_model import BaseModel
+#from models.base_model import BaseModel
+import json
 class FileStorage:
     """handle the data storage"""
     def __init__(self) -> None:
@@ -29,7 +30,8 @@ class FileStorage:
     # serializes __objects to the JSON file (path: __file_path)
     #   convert objects in __objects dictionary to Json file
     def save(self):
-        pass
+        with open("./file.json", "w", encoding='UTF-8') as f:
+            json.dump(self.__objects, f)
 
 
     # deserializes the JSON file to __objects
