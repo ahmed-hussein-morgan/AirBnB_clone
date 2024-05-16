@@ -3,7 +3,7 @@
 handle objects and create needed json file:
     retreive, save, add_new, reload 
 """
-#from models.base_model import BaseModel
+from models.base_model import BaseModel
 import json
 class FileStorage:
     """handle the data storage"""
