@@ -29,7 +29,7 @@ class FileStorage:
     # serializes __objects to the JSON file (path: __file_path)
     #   convert objects in __objects dictionary to Json file
     def save(self):
-        with open("./file.json", "w", encoding='UTF-8') as f:
+        with open(FileStorage.__file_path, "w") as f:
             json.dump(FileStorage.__objects, f)
 
 
