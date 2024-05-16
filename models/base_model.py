@@ -26,11 +26,11 @@ class BaseModel:
             self.id = str(uuid.uuid4())
 
             # assign with the current datetime when an instance is created
-            self.created_at = datetime.datetime.now()
+            self.created_at = datetime.now()
 
             # assign with the current datetime when an instance is created
             # and it will be updated every time you change your object
-            self.updated_at = datetime.datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
         # if not kwargs:
