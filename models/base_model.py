@@ -34,6 +34,7 @@ class BaseModel:
             # assign with the current datetime when an instance is created
             # and it will be updated every time you change your object
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
     # The __str__() method returns a human-readable string representation\
     # of an object
