@@ -31,8 +31,15 @@ class FileStorage:
     # serializes __objects to the JSON file (path: __file_path)
     #   convert objects in __objects dictionary to Json file
     def save(self):
-        with open(FileStorage.__file_path, "w") as f:
-            json.dump(FileStorage.__objects, f)
+        # with open(FileStorage.__file_path, "w") as f:
+        #     json.dump(FileStorage.__objects, f)
+        """Saves storage dictionary to file"""
+        with open(FileStorage.__file_path, 'w') as f:
+            temp = {}
+            temp.update(FileStorage.__objects)
+            for key, val in temp.items():
+                temp[key] = val.to_dict()
+            json.dump(temp, f)
 
 
     # deserializes the JSON file to __objects
@@ -40,4 +47,4 @@ class FileStorage:
     #   If the file doesn’t exist, no exception should be raised)
     # convert back Json file in the __file_path to __objects
     def reload(self):
-        pass
+        # pass
