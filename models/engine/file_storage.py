@@ -24,7 +24,9 @@ class FileStorage:
     # key in format <obj class name>.id
     # value is the object
     def new(self, obj):
-        self.__objects[f'{obj.__class__.__name__}.{obj.id}'] = obj
+
+        #   self.__objects[f'{obj.__class__.__name__}.{obj.id}'] = obj
+        self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
 
     # serializes __objects to the JSON file (path: __file_path)
     #   convert objects in __objects dictionary to Json file
