@@ -43,6 +43,8 @@ class BaseModel:
     # updates the public instance attribute updated_at with the current datetime
     def save(self):
         # models.storage.save()
+        if f'{self.__class__.__name__}.{self.id}' not in models.storage.__objects:
+            models.storage.new()
         self.updated_at = datetime.now()
         models.storage.save()
 
