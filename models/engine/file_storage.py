@@ -47,4 +47,4 @@ class FileStorage:
     #   If the file doesn’t exist, no exception should be raised)
     # convert back Json file in the __file_path to __objects
     def reload(self):
-        # pass
+        pass
